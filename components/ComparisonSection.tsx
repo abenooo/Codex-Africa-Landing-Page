@@ -169,40 +169,6 @@ const ComparisonSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Action Card */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="mt-24 sm:mt-32"
-        >
-          <div className="bg-black rounded-[3rem] sm:rounded-[4rem] p-8 sm:p-16 lg:p-24 text-center relative overflow-hidden shadow-2xl">
-             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent"></div>
-             
-             <div className="relative z-10 max-w-4xl mx-auto">
-                <div className="flex justify-center mb-6 sm:mb-8">
-                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-emerald-400">
-                      <Rocket size={24} className="sm:size-8" />
-                   </div>
-                </div>
-                
-                <h3 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white mb-8 tracking-tighter leading-[0.95]">
-                   Manual systems cost SACCOs money. <br />
-                   <span className="text-emerald-400">Upgrade to Codex Africa.</span>
-                </h3>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                   <button className="w-full sm:w-auto bg-emerald-500 text-white px-10 py-5 rounded-full font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:bg-emerald-400 transition-all active:scale-95 shadow-lg shadow-emerald-500/20">
-                      Request a Demo
-                      <ArrowRight size={16} />
-                   </button>
-                   <button className="w-full sm:w-auto px-10 py-5 rounded-full font-black uppercase tracking-widest text-[10px] text-white border border-white/20 hover:bg-white hover:text-black transition-all">
-                      Go Live in Days
-                   </button>
-                </div>
-             </div>
-          </div>
-        </motion.div>
-
       </div>
     </section>
   );

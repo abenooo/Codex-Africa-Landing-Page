@@ -22,7 +22,9 @@ import {
 } from 'lucide-react';
 
 const AppDownload: React.FC = () => {
-  const brandYellow = "#FFD700";
+  const brandRed = "#EF4444"; // primary
+  const brandGreen = "#34D399"; // secondary (light green)
+
 
   return (
     <section className="bg-white py-16 sm:py-32 overflow-hidden" id="app">
@@ -31,7 +33,7 @@ const AppDownload: React.FC = () => {
           
           {/* Left Side: Realistic Phone Mockup */}
           <div className="relative flex justify-center lg:justify-end order-2 lg:order-1">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-radial-gradient from-yellow-100 to-transparent opacity-30 -z-10 blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-radial-gradient from-red-100 to-transparent opacity-30 -z-10 blur-3xl"></div>
             
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
@@ -41,13 +43,13 @@ const AppDownload: React.FC = () => {
             >
               {/* Screen Content */}
               <div className="w-full h-full bg-[#FAFAFA] rounded-[2.4rem] sm:rounded-[2.8rem] overflow-hidden flex flex-col relative no-scrollbar overflow-y-auto">
-                <div style={{ backgroundColor: brandYellow }} className="p-5 sm:p-6 pt-10 sm:pt-12 pb-12 sm:pb-14 rounded-b-[2.5rem] sm:rounded-b-[3rem] shadow-sm relative">
+                <div style={{ backgroundColor: brandRed }} className="p-5 sm:p-6 pt-10 sm:pt-12 pb-12 sm:pb-14 rounded-b-[2.5rem] sm:rounded-b-[3rem] shadow-sm relative">
                   <div className="flex justify-between items-center mb-6">
                     <LayoutGrid size={20} className="text-white" />
                     <span className="text-xs sm:text-lg font-extrabold text-white">Abenezer Kifle</span>
                     <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full"></div>
                   </div>
-                  <div className="bg-gradient-to-br from-[#E6BC00] to-[#FFD700] p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-xl border border-white/25 text-white">
+                  <div className="bg-gradient-to-br from-red-500 to-rose-600 p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-xl border border-white/25 text-white">
                     <div className="flex justify-between items-start mb-6 sm:mb-8">
                        <span className="font-bold text-xs sm:text-sm">Main Account</span>
                        <Eye size={18} className="opacity-80" />
@@ -63,10 +65,10 @@ const AppDownload: React.FC = () => {
                 <div className="px-4 sm:px-5 -mt-6 mb-6 sm:mb-8 z-10">
                   <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] shadow-lg border border-gray-50 p-4 sm:p-6 grid grid-cols-4 gap-2 sm:gap-4">
                     {[
-                      { icon: PiggyBank, color: 'bg-orange-400' },
-                      { icon: Landmark, color: 'bg-yellow-400' },
-                      { icon: Calculator, color: 'bg-amber-400' },
-                      { icon: History, color: 'bg-yellow-500' }
+                      { icon: PiggyBank, color: 'bg-emerald-500' },
+                      { icon: Landmark, color: 'bg-red-500' },
+                      { icon: Calculator, color: 'bg-emerald-400' },
+                      { icon: History, color: 'bg-red-600' }
                     ].map((item, i) => (
                       <div key={i} className={`w-10 h-10 sm:w-12 sm:h-12 ${item.color} rounded-full mx-auto flex items-center justify-center text-white`}>
                         <item.icon size={18} sm:size={22} />
@@ -88,7 +90,7 @@ const AppDownload: React.FC = () => {
                 <div className="mt-auto bg-white border-t border-gray-100 px-6 sm:px-8 py-3 sm:py-5 flex justify-between items-center sticky bottom-0 z-30">
                   <Landmark size={18} sm:size={20} className="text-gray-400" />
                   <div className="relative -mt-10 sm:-mt-14">
-                    <div style={{ backgroundColor: brandYellow }} className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-[4px] sm:border-[5px] border-[#FAFAFA] flex items-center justify-center text-gray-900 shadow-lg">
+                    <div style={{ backgroundColor: brandRed }} className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-[4px] sm:border-[5px] border-[#FAFAFA] flex items-center justify-center text-white shadow-lg">
                       <House size={20} sm:size={26} />
                     </div>
                   </div>
@@ -106,7 +108,7 @@ const AppDownload: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-2"
             >
-              <div style={{ backgroundColor: brandYellow }} className="p-1.5 rounded-lg text-white">
+              <div style={{ backgroundColor: brandRed }} className="p-1.5 rounded-lg text-white">
                 <SmartphoneIcon size={18} />
               </div>
               <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-gray-900">Download apps</span>
@@ -118,7 +120,7 @@ const AppDownload: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter text-gray-900 leading-[1.0] sm:leading-[0.95]"
             >
-              Designed to work <br /> <span className="text-yellow-500">seamlessly</span> anywhere.
+              Designed to work <br /> <span className="text-red-500">seamlessly</span> anywhere.
             </motion.h2>
             
             <motion.p 
@@ -139,7 +141,7 @@ const AppDownload: React.FC = () => {
               <button className="bg-black text-white px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover:bg-gray-800 transition-all shadow-xl">
                 Download Now <Download size={20} />
               </button>
-              <button className="bg-white text-gray-900 border-2 border-gray-100 px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover:border-yellow-400 transition-all">
+              <button className="bg-white text-gray-900 border-2 border-gray-100 px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover:border-red-500 transition-all">
                 Explore Demo <ChevronRight size={20} />
               </button>
             </motion.div>

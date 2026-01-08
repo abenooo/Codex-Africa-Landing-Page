@@ -95,12 +95,12 @@ const TeamSection: React.FC = () => {
         {/* Header Section: Exact match for the screenshot */}
         <div className="text-center mb-16 space-y-6">
           <div className="flex items-center justify-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#1A4D4D]"></span>
-            <span className="text-sm font-medium text-[#1A4D4D] tracking-wide">Our team</span>
+            <span className="w-10 h-[2px] bg-red-500"></span>
+            <span className="text-[10px] font-black text-red-600 tracking-[0.4em] uppercase">Our team</span>
           </div>
           
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#1A4D4D] tracking-tight max-w-4xl mx-auto leading-tight" style={{ fontFamily: 'Georgia, serif' }}>
-            Meet the experts behind your <br /> business success
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-[0.95] max-w-4xl mx-auto">
+            Meet the experts behind your <br className="hidden sm:block" /> business success
           </h2>
         </div>
 
@@ -153,21 +153,21 @@ const TeamSection: React.FC = () => {
           <div className="flex items-center gap-4">
             <button 
               onClick={() => { handlePrev(); resetAutoPlay(); }}
-              className="w-14 h-14 rounded-full bg-[#1A4D4D] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xl"
+              className="w-14 h-14 rounded-full bg-black flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xl hover:bg-red-600"
             >
               <ArrowLeft size={24} strokeWidth={2.5} />
             </button>
             <button 
               onClick={() => { handleNext(); resetAutoPlay(); }}
-              className="w-14 h-14 rounded-full bg-[#1A4D4D] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xl"
+              className="w-14 h-14 rounded-full bg-black flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xl hover:bg-red-600"
             >
               <ArrowRight size={24} strokeWidth={2.5} />
             </button>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#1A4D4D]"></span>
-            <span className="text-xs font-bold text-[#1A4D4D] tracking-[0.2em] uppercase">FAQ</span>
+            <span className="w-2 h-2 rounded-full bg-gray-300"></span>
+            <span className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">FAQ</span>
           </div>
         </div>
 

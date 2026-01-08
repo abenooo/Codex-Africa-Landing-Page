@@ -76,11 +76,12 @@ const ValueDelaySection: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl sm:text-7xl lg:text-8xl font-black text-gray-900 tracking-tight leading-[0.9] uppercase max-w-6xl"
+            className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-[0.95] max-w-6xl"
           >
-            Efficiency isn’t just <br className="hidden sm:block" /> 
+            Efficiency isn’t just <br className="hidden sm:block" />
             a feature — it’s how <br />
-            <span className="text-emerald-500">SACCOs protect <br className="sm:hidden" /> revenue and scale.</span>
+            <span className="text-gray-400">SACCOs protect </span> 
+            <span className="text-emerald-500">revenue and scale.</span>
           </motion.h2>
         </div>
 
