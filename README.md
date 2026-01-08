@@ -1,30 +1,22 @@
 
-# SaccoSaaS - Modern Cooperative Banking Platform
+# SaccoSaaS - Cooperative Banking Platform
 
-A high-fidelity, responsive landing page designed for SACCO (Savings and Credit Co-operative Society) software as a service. This project showcases modern UI/UX patterns including sticky process timelines, stacking feature cards, and infinite carousels.
+A high-performance landing page for modern Sacco SaaS solutions.
 
 ## 🚀 Key Features
-
-- **Interactive Process Timeline**: Vertical scroll-triggered onboarding guide.
-- **Stacking Features**: Modern "card stacking" effect for product modules.
-- **Infinite Team Carousel**: Seamlessly looping expert showcase optimized for all devices.
-- **High-Performance Navigation**: Floating glassmorphism navbar with mobile support.
-- **Fully Responsive**: Tailored experiences for mobile, tablet, and desktop.
-
-## 🛠️ Built With
-
-- **React 19**
-- **Tailwind CSS**
-- **Framer Motion** (Animations)
-- **Lucide React** (Icons)
+- **Interactive Process Timeline**: Vertical scroll-triggered guide.
+- **Stacking Features**: Product modules with smooth depth effects.
+- **Infinite Carousel**: Seamless team showcase.
+- **Vercel Optimized**: Ready for instant deployment.
 
 ## 📦 Deployment
+This project is built for Vercel. 
+1. Push to GitHub.
+2. Link to Vercel.
+3. It will auto-build using the included `package.json` and `vite.config.ts`.
 
-This project is optimized for **Vercel**. To deploy:
-1. Push your code to a GitHub repository.
-2. Connect the repository to Vercel.
-3. The `index.html` and `index.tsx` setup will be automatically detected and served.
-
-## 📝 License
-
-Distributed under the MIT License.
+## 🛠 Tech Stack
+- React 19
+- Tailwind CSS
+- Framer Motion
+- Lucide React

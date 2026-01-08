@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { TeamMember } from '../types';
 
@@ -37,7 +37,6 @@ const originalMembers: TeamMember[] = [
   }
 ];
 
-// Triplicate the array for seamless infinite looping
 const loopedMembers = [...originalMembers, ...originalMembers, ...originalMembers];
 
 const TeamSection: React.FC = () => {
@@ -46,7 +45,6 @@ const TeamSection: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Responsive Breakpoints: Ensure "No Partial Images"
   useEffect(() => {
     const handleResize = () => {
       const w = window.innerWidth;
@@ -54,7 +52,7 @@ const TeamSection: React.FC = () => {
       else if (w < 768) setItemsVisible(2);
       else if (w < 1024) setItemsVisible(3);
       else if (w < 1280) setItemsVisible(4);
-      else setItemsVisible(5); // Large screens show all 5 fully
+      else setItemsVisible(5);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -72,7 +70,6 @@ const TeamSection: React.FC = () => {
 
   const handleTransitionEnd = () => {
     setIsAnimating(false);
-    // Instant jump for infinite loop to maintain the "middle set"
     if (currentIndex >= originalMembers.length * 2) {
       setCurrentIndex(currentIndex - originalMembers.length);
     } else if (currentIndex < originalMembers.length) {
@@ -90,15 +87,12 @@ const TeamSection: React.FC = () => {
     autoPlayRef.current = setInterval(handleNext, 6000);
   };
 
-  // Translation Math:
-  // Each index move shifts the container by (100 / itemsVisible)% of the viewport
   const getTranslateX = () => -(currentIndex * (100 / itemsVisible));
 
   return (
     <section className="bg-white py-24 sm:py-32 overflow-hidden" id="team">
       <div className="mx-auto max-w-[95rem] px-4 sm:px-6 lg:px-10">
         
-        {/* Header Section */}
         <div className="text-center mb-16 space-y-4">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
@@ -119,8 +113,7 @@ const TeamSection: React.FC = () => {
           </motion.h2>
         </div>
 
-        {/* The Carousel Container */}
-        <div className="relative mb-20 px-4">
+        <div className="relative mb-20">
           <div className="overflow-visible">
             <motion.div 
               className="flex items-stretch"
@@ -142,14 +135,33 @@ const TeamSection: React.FC = () => {
                   className="px-3 shrink-0"
                   style={{ width: `${100 / loopedMembers.length}%` }}
                 >
-                  <TeamCard member={member} />
+                  <div className="relative h-[500px] md:h-[550px] xl:h-[650px] rounded-[3rem] overflow-hidden group bg-gray-100 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 z-0"
+                      loading="lazy"
+                    />
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500 z-10"></div>
+                    
+                    <div className="absolute bottom-0 left-0 p-8 lg:p-12 w-full z-20">
+                      <h4 className="text-2xl lg:text-3xl font-black text-white mb-1 tracking-tight group-hover:translate-x-1 transition-transform duration-500">
+                        {member.name}
+                      </h4>
+                      <p className="text-sm font-bold text-white/60 uppercase tracking-widest leading-none group-hover:translate-x-1 transition-transform duration-500 delay-75">
+                        {member.role}
+                      </p>
+                    </div>
+
+                    <div className="absolute inset-4 border border-white/10 group-hover:border-white/20 transition-all duration-700 rounded-[2.5rem] pointer-events-none z-30"></div>
+                  </div>
                 </div>
               ))}
             </motion.div>
           </div>
         </div>
 
-        {/* Navigation Controls */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-10">
           <div className="flex items-center gap-6">
             <motion.button 
@@ -186,47 +198,8 @@ const TeamSection: React.FC = () => {
             </motion.button>
           </div>
         </div>
-
       </div>
     </section>
-  );
-};
-
-// Sub-component for individual card with robust image loading
-const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  return (
-    <div className="relative h-[500px] md:h-[550px] xl:h-[650px] rounded-[3rem] overflow-hidden group bg-gray-50 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700">
-      
-      {/* Background/Placeholder */}
-      <div className={`absolute inset-0 bg-gray-200 transition-opacity duration-700 ${imageLoaded ? 'opacity-0' : 'opacity-100 animate-pulse'}`}></div>
-      
-      {/* Image with explicit z-index and onLoad */}
-      <img 
-        src={member.image} 
-        alt={member.name} 
-        onLoad={() => setImageLoaded(true)}
-        className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 z-0 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-        loading="lazy"
-      />
-      
-      {/* Visual Overlay - Ensures text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500 z-10"></div>
-      
-      {/* Content */}
-      <div className="absolute bottom-0 left-0 p-8 lg:p-12 w-full z-20">
-        <h4 className="text-2xl lg:text-3xl font-black text-white mb-1 tracking-tight group-hover:translate-x-1 transition-transform duration-500">
-          {member.name}
-        </h4>
-        <p className="text-sm font-bold text-white/60 uppercase tracking-widest leading-none group-hover:translate-x-1 transition-transform duration-500 delay-75">
-          {member.role}
-        </p>
-      </div>
-
-      {/* Decorative inner border */}
-      <div className="absolute inset-4 border border-white/10 group-hover:border-white/20 transition-all duration-700 rounded-[2.5rem] pointer-events-none z-30"></div>
-    </div>
   );
 };
 
