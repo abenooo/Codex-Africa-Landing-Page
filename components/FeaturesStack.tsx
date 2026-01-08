@@ -218,7 +218,7 @@ const CollaborationMockup = () => (
       </div>
       <div className="space-y-1">
         <p className="text-sm font-bold text-gray-900 leading-snug">Sure! I'll assign this to Daniel</p>
-        <p className="text-[10px] text-gray-400 font-bold">2 min ago</p>
+        <p className="text-[10px] text-gray-600 font-bold">2 min ago</p>
       </div>
     </motion.div>
 
@@ -230,7 +230,7 @@ const CollaborationMockup = () => (
     >
       <div className="px-6 py-4 border-b border-gray-50 flex items-center justify-between bg-gray-50/30">
         <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
-          <Users size={14} className="text-gray-400" />
+          <Users size={14} className="text-gray-500" aria-hidden="true" />
           <span className="text-xs font-bold text-gray-500">Team</span>
         </div>
         <LayoutGrid size={16} className="text-gray-300" />
@@ -258,7 +258,7 @@ const CollaborationMockup = () => (
                 />
                 <div>
                   <p className="text-sm font-bold text-gray-900 mb-1">{user.name}</p>
-                  <p className="text-[10px] text-gray-400 font-bold tracking-tight uppercase">{user.role}</p>
+                  <p className="text-[10px] text-gray-600 font-bold tracking-tight uppercase">{user.role}</p>
                 </div>
               </div>
               {user.active && <CheckCircle2 size={16} className="text-blue-600" />}
@@ -339,12 +339,12 @@ const AnalyticsMockup = () => (
             initial={{ strokeDashoffset: 691 }}
             whileInView={{ strokeDashoffset: 124.38 }}
             transition={{ duration: 2, ease: "circOut" }}
-            cx="128" cy="128" r="110" stroke="currentColor" strokeWidth="24" fill="transparent" strokeDasharray="691" className="text-red-500" strokeLinecap="round" 
+            cx="128" cy="128" r="110" stroke="currentColor" strokeWidth="24" fill="transparent" strokeDasharray="691" className="text-red-600" strokeLinecap="round" 
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="text-6xl font-black tracking-tighter text-gray-900">82%</span>
-          <span className="text-[12px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-2">Growth</span>
+          <span className="text-[12px] font-bold text-gray-600 uppercase tracking-[0.2em] mt-2">Growth</span>
         </div>
       </div>
       <div className="absolute top-24 right-10">

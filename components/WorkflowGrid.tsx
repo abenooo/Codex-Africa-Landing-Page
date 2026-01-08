@@ -26,7 +26,7 @@ const WorkflowGrid: React.FC = () => {
                     </div>
                     <h3 className="font-bold text-gray-900 text-lg">Loan Disbursement</h3>
                 </div>
-                <button className="text-gray-400 hover:text-gray-600" aria-label="More options"><MoreHorizontal aria-hidden="true" /></button>
+                <button className="text-gray-500 hover:text-gray-700" aria-label="More options"><MoreHorizontal aria-hidden="true" /></button>
              </div>
              
              <div className="flex items-end gap-2 sm:gap-4 h-40 sm:h-48 w-full mt-auto px-1 sm:px-2">
@@ -40,7 +40,7 @@ const WorkflowGrid: React.FC = () => {
                     </div>
                  ))}
              </div>
-             <div className="flex justify-between mt-4 sm:mt-6 text-[10px] sm:text-xs text-gray-400 font-semibold px-2">
+             <div className="flex justify-between mt-4 sm:mt-6 text-[10px] sm:text-xs text-gray-600 font-semibold px-2">
                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
              </div>
           </div>
@@ -51,7 +51,7 @@ const WorkflowGrid: React.FC = () => {
                   <div className="p-2.5 bg-yellow-50 rounded-xl text-yellow-600 border border-yellow-100">
                       <CheckCircle2 size={24} />
                   </div>
-                  <button className="text-gray-400 hover:text-gray-600" aria-label="More options"><MoreHorizontal aria-hidden="true" /></button>
+                  <button className="text-gray-500 hover:text-gray-700" aria-label="More options"><MoreHorizontal aria-hidden="true" /></button>
               </div>
               
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">Approve Dividend Payouts</h3>
@@ -75,7 +75,7 @@ const WorkflowGrid: React.FC = () => {
           <div className="col-span-1 lg:col-span-3 bg-white rounded-[2rem] p-6 border border-gray-100 shadow-sm flex flex-col hover:border-gray-300 transition-colors">
                <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
                    <div className="flex flex-col items-center bg-gray-50 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl text-gray-900 border border-gray-200 min-w-[3rem] sm:min-w-[3.5rem]">
-                       <span className="text-[9px] sm:text-[10px] font-bold uppercase text-red-500 tracking-wider">NOV</span>
+                       <span className="text-[9px] sm:text-[10px] font-bold uppercase text-red-600 tracking-wider">NOV</span>
                        <span className="text-lg sm:text-xl font-bold">22</span>
                    </div>
                    <div className="flex-1">
@@ -99,7 +99,7 @@ const WorkflowGrid: React.FC = () => {
                   <div className="p-2 bg-gray-50 rounded-full text-gray-900 border border-gray-200">
                       <DollarSign size={18} />
                   </div>
-                  <ArrowUpRight size={16} className="text-gray-400" />
+                  <ArrowUpRight size={16} className="text-gray-500" aria-hidden="true" />
               </div>
               <div className="mt-4">
                   <p className="text-xs sm:text-sm font-medium text-gray-500">Interest Income</p>
@@ -116,12 +116,12 @@ const WorkflowGrid: React.FC = () => {
                   <div className="p-2 bg-gray-50 rounded-full text-gray-900 border border-gray-200">
                       <Users size={18} />
                   </div>
-                  <ArrowUpRight size={16} className="text-gray-400" />
+                  <ArrowUpRight size={16} className="text-gray-500" aria-hidden="true" />
               </div>
               <div className="mt-4">
                   <p className="text-xs sm:text-sm font-medium text-gray-500">New Members</p>
                   <p className="text-xl sm:text-2xl font-bold text-gray-900 mt-1">1,218</p>
-                  <p className="text-[10px] sm:text-xs font-bold text-red-500 mt-1 flex items-center gap-1">
+                  <p className="text-[10px] sm:text-xs font-bold text-red-600 mt-1 flex items-center gap-1">
                       <ArrowDownRight size={12} strokeWidth={3}/> -12.4%
                   </p>
               </div>
@@ -133,7 +133,7 @@ const WorkflowGrid: React.FC = () => {
                    <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-[10px] sm:border-[16px] border-orange-100 border-t-orange-500 rotate-[-45deg] relative"></div>
                    <div className="absolute inset-0 flex flex-col items-center justify-center">
                        <span className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">1,248</span>
-                       <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase">Loans</span>
+                       <span className="text-[8px] sm:text-[10px] font-bold text-gray-600 uppercase">Loans</span>
                    </div>
               </div>
               <div className="w-full flex flex-col space-y-3 sm:space-y-4">

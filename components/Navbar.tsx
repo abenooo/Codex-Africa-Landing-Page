@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
                    className="text-3xl font-bold text-gray-900 py-4 border-b border-gray-50 flex items-center justify-between group"
                  >
                    <div className="flex items-center gap-5">
-                      <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:text-red-500 transition-colors">
+                      <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-500 group-hover:text-red-600 transition-colors">
                         <item.icon size={26} />
                       </div>
                       {item.label} 

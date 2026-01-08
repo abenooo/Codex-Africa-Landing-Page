@@ -1,39 +1,23 @@
 
 import React from 'react';
 
+const makeLogoDataUri = (label: string) =>
+  `data:image/svg+xml,${encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' width='240' height='64'>` +
+      `<rect width='100%' height='100%' fill='white'/>` +
+      `<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#6b7280' font-family='ui-sans-serif,system-ui' font-size='14' font-weight='700'>${label}</text>` +
+    `</svg>`
+  )}`;
+
 const partners = [
-  { 
-    alt: "Commercial Bank of Ethiopia", 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Commercial_Bank_of_Ethiopia_logo.png/512px-Commercial_Bank_of_Ethiopia_logo.png" 
-  },
-  { 
-    alt: "Telebirr", 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Telebirr_logo.png/512px-Telebirr_logo.png" 
-  },
-  { 
-    alt: "Awash Bank", 
-    src: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Awash_Bank_logo.png/220px-Awash_Bank_logo.png" 
-  },
-  { 
-    alt: "Dashen Bank", 
-    src: "https://upload.wikimedia.org/wikipedia/en/thumb/1/14/Dashen_Bank_logo.png/220px-Dashen_Bank_logo.png" 
-  },
-  { 
-    alt: "M-Pesa", 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/M-Pesa_Logo.svg/512px-M-Pesa_Logo.svg.png" 
-  },
-  { 
-    alt: "Mastercard", 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/512px-Mastercard-logo.svg.png" 
-  },
-  { 
-    alt: "Visa", 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Visa_2021.svg/512px-Visa_2021.svg.png" 
-  },
-  { 
-    alt: "Bank of Abyssinia", 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Bank_of_Abyssinia_logo.png/512px-Bank_of_Abyssinia_logo.png" 
-  }
+  { alt: 'Commercial Bank of Ethiopia', src: makeLogoDataUri('Commercial Bank of Ethiopia') },
+  { alt: 'Telebirr', src: makeLogoDataUri('Telebirr') },
+  { alt: 'Awash Bank', src: makeLogoDataUri('Awash Bank') },
+  { alt: 'Dashen Bank', src: makeLogoDataUri('Dashen Bank') },
+  { alt: 'M-Pesa', src: makeLogoDataUri('M-Pesa') },
+  { alt: 'Mastercard', src: makeLogoDataUri('Mastercard') },
+  { alt: 'Visa', src: makeLogoDataUri('Visa') },
+  { alt: 'Bank of Abyssinia', src: makeLogoDataUri('Bank of Abyssinia') }
 ];
 
 // Duplicate for seamless infinite loop

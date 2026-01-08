@@ -24,7 +24,7 @@ function App() {
 
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-gray-900 leading-[0.9] sm:leading-[0.82]">
               Elevate Your <br />
-              <span className="text-gray-400">Sacco Experience.</span>
+              <span className="text-gray-500">Sacco Experience.</span>
             </h1>
 
             <p className="text-lg md:text-2xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-semibold px-4">
@@ -82,10 +82,10 @@ function App() {
 
         {/* Footer Teaser */}
         <footer className="bg-black text-white py-24 sm:py-40 text-center px-4 overflow-hidden relative">
-          <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:18px_18px]"></div>
           <div className="max-w-4xl mx-auto relative z-10">
             <h2 className="text-4xl md:text-7xl lg:text-8xl font-black mb-6 sm:mb-10 tracking-tighter uppercase leading-none">The Future <br className="hidden sm:block" /> is Cooperative.</h2>
-            <p className="text-base sm:text-xl text-gray-400 mb-10 sm:mb-14 font-medium max-w-xl mx-auto">Digitize your operations in minutes. No complex hardware, no massive upfront costs.</p>
+            <p className="text-base sm:text-xl text-gray-300 mb-10 sm:mb-14 font-medium max-w-xl mx-auto">Digitize your operations in minutes. No complex hardware, no massive upfront costs.</p>
             <button className="px-10 sm:px-14 py-5 sm:py-7 bg-red-600 text-white rounded-full font-black uppercase tracking-widest text-lg sm:text-xl hover:bg-red-700 transition-all shadow-[0_20px_50px_rgba(220,38,38,0.3)] active:scale-95">
               Start Your Trial
             </button>

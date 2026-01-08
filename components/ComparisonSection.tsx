@@ -88,7 +88,7 @@ const ComparisonSection: React.FC = () => {
               className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-[0.95]"
             >
               Legacy Ops vs <br />
-              <span className="text-gray-400">Codex Platform</span>
+              <span className="text-gray-600">Codex Platform</span>
             </motion.h2>
           </div>
           <motion.div 
@@ -105,10 +105,10 @@ const ComparisonSection: React.FC = () => {
         {/* Column Labels (Desktop Only) */}
         <div className="hidden lg:grid grid-cols-12 gap-6 mb-6 px-4">
           <div className="col-span-3">
-            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-400">Core Feature</span>
+            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-600">Core Feature</span>
           </div>
           <div className="col-span-4">
-             <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-400">Manual Operations</span>
+             <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-600">Manual Operations</span>
           </div>
           <div className="col-span-5">
              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-emerald-600">Codex Africa Digital</span>
@@ -138,7 +138,7 @@ const ComparisonSection: React.FC = () => {
               {/* Manual Side - Compact */}
               <div className="lg:col-span-4">
                  <div className="h-full bg-white border border-gray-100 p-4 sm:p-5 rounded-2xl sm:rounded-3xl flex items-center gap-3">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-red-50 flex items-center justify-center text-red-500">
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-red-50 flex items-center justify-center text-red-600">
                        <X size={10} strokeWidth={3} />
                     </div>
                     <p className="text-xs sm:text-sm text-gray-500 font-medium leading-snug">

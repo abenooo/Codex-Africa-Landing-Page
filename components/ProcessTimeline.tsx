@@ -47,7 +47,7 @@ const ProcessTimeline: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="sticky top-24 sm:top-32 z-30 mb-10 lg:mb-0">
               <div className="flex items-center gap-3 mb-6 sm:mb-8">
-                <span className="text-red-500 font-bold tracking-widest text-xs uppercase">// Process //</span>
+                <span className="text-red-600 font-bold tracking-widest text-xs uppercase">// Process //</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-[1.1] mb-4">
                 A proven fintech process <br className="hidden sm:block"/> for SACCOs.

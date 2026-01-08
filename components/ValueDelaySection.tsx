@@ -80,8 +80,8 @@ const ValueDelaySection: React.FC = () => {
           >
             Efficiency isn’t just <br className="hidden sm:block" />
             a feature — it’s how <br />
-            <span className="text-gray-400">SACCOs protect </span> 
-            <span className="text-emerald-500">revenue and scale.</span>
+            <span className="text-gray-600">SACCOs protect </span> 
+            <span className="text-emerald-700">revenue and scale.</span>
           </motion.h2>
         </div>
 
@@ -93,8 +93,8 @@ const ValueDelaySection: React.FC = () => {
               {/* Row Label (Left) */}
               <div className="flex flex-col z-20 min-w-[180px] sm:min-w-[320px] lg:min-w-[380px]">
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-[10px] font-mono text-emerald-500 font-bold">{item.id}</span>
-                  <p className="text-[11px] sm:text-xs font-black tracking-[0.15em] text-gray-400 uppercase">
+                  <span className="text-[10px] font-mono text-emerald-700 font-bold">{item.id}</span>
+                  <p className="text-[11px] sm:text-xs font-black tracking-[0.15em] text-gray-600 uppercase">
                     {item.label}
                   </p>
                 </div>
@@ -155,7 +155,7 @@ const ValueDelaySection: React.FC = () => {
           whileInView={{ opacity: 1 }}
           className="mt-20 flex justify-center"
         >
-          <p className="text-gray-400 font-bold text-xs uppercase tracking-[0.3em] text-center">
+          <p className="text-gray-600 font-bold text-xs uppercase tracking-[0.3em] text-center">
             Optimized for SASRA Compliance & Member Trust across Africa
           </p>
         </motion.div>

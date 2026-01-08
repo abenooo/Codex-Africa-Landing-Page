@@ -87,13 +87,17 @@ const AppDownload: React.FC = () => {
                 </div>
 
                 <div className="mt-auto bg-white border-t border-gray-100 px-6 sm:px-8 py-3 sm:py-5 flex justify-between items-center sticky bottom-0 z-30">
-                  <Landmark size={18} className="text-gray-400 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" aria-hidden="true" />
+                  <Landmark size={18} className="text-gray-500 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" aria-hidden="true" />
                   <div className="relative -mt-10 sm:-mt-14">
-                    <div style={{ backgroundColor: brandRed }} className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-[4px] sm:border-[5px] border-[#FAFAFA] flex items-center justify-center text-white shadow-lg" aria-label="Home">
-                      <House size={20} className="w-[20px] h-[20px] sm:w-[26px] sm:h-[26px]" aria-hidden="true" />
-                    </div>
+                    <div
+                     style={{ backgroundColor: brandRed }}
+                     className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-[4px] sm:border-[5px] border-[#FAFAFA] flex items-center justify-center text-white shadow-lg"
+                     aria-hidden="true"
+                   >
+                     <House size={20} className="w-[20px] h-[20px] sm:w-[26px] sm:h-[26px]" aria-hidden="true" />
+                   </div>
                   </div>
-                  <Settings size={18} className="text-gray-400 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" aria-hidden="true" />
+                  <Settings size={18} className="text-gray-500 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" aria-hidden="true" />
                 </div>
               </div>
             </motion.div>
@@ -119,7 +123,7 @@ const AppDownload: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter text-gray-900 leading-[1.0] sm:leading-[0.95]"
             >
-              Designed to work <br /> <span className="text-red-500">seamlessly</span> anywhere.
+              Designed to work <br /> <span className="text-red-600">seamlessly</span> anywhere.
             </motion.h2>
             
             <motion.p 
