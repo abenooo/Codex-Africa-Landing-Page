@@ -9,31 +9,31 @@ const originalMembers: TeamMember[] = [
     id: '1',
     name: 'Sarah Mitchell',
     role: 'Lead Consultant',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: '2',
     name: 'James Carter',
     role: 'Business Expert',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: '3',
     name: 'Emily Ross',
     role: 'Efficiency Specialist',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: '4',
     name: 'Daniel Lee',
     role: 'Financial & Growth Advisor',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: '5',
     name: 'Michael Chen',
     role: 'Product Strategist',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop'
   }
 ];
 
@@ -72,7 +72,7 @@ const TeamSection: React.FC = () => {
 
   const handleTransitionEnd = () => {
     setIsAnimating(false);
-    // Instant jump for infinite loop
+    // Instant jump for infinite loop to maintain the "middle set"
     if (currentIndex >= originalMembers.length * 2) {
       setCurrentIndex(currentIndex - originalMembers.length);
     } else if (currentIndex < originalMembers.length) {
@@ -106,7 +106,7 @@ const TeamSection: React.FC = () => {
             className="flex items-center justify-center gap-2"
           >
             <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]"></span>
-            <span className="text-sm font-bold text-gray-900 tracking-[0.2em] uppercase">Our Experts</span>
+            <span className="text-sm font-bold text-gray-900 tracking-[0.2em] uppercase">The Experts</span>
           </motion.div>
           
           <motion.h2 
@@ -120,12 +120,11 @@ const TeamSection: React.FC = () => {
         </div>
 
         {/* The Carousel Container */}
-        <div className="relative mb-20">
+        <div className="relative mb-20 px-4">
           <div className="overflow-visible">
             <motion.div 
-              className="flex"
+              className="flex items-stretch"
               style={{
-                // Width is calculated based on total items relative to how many we want to show
                 width: `${(loopedMembers.length / itemsVisible) * 100}%`
               }}
               animate={{ x: `${getTranslateX()}%` }}
@@ -133,43 +132,17 @@ const TeamSection: React.FC = () => {
               transition={isAnimating ? { 
                 type: "spring", 
                 stiffness: 85, 
-                damping: 20,
-                mass: 1
+                damping: 22,
+                mass: 0.8
               } : { duration: 0 }}
             >
               {loopedMembers.map((member, idx) => (
                 <div
                   key={`${member.id}-${idx}`}
-                  className="px-2.5 shrink-0"
+                  className="px-3 shrink-0"
                   style={{ width: `${100 / loopedMembers.length}%` }}
                 >
-                  <div className="relative h-[500px] md:h-[550px] xl:h-[650px] rounded-[3rem] overflow-hidden group bg-gray-100 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700">
-                    {/* Fallback color while image loads */}
-                    <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    
-                    {/* Dark Professional Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500"></div>
-                    
-                    {/* Text Content */}
-                    <div className="absolute bottom-0 left-0 p-8 lg:p-12 w-full z-10">
-                      <h4 className="text-2xl lg:text-3xl font-black text-white mb-1 tracking-tight group-hover:translate-x-1 transition-transform duration-500">
-                        {member.name}
-                      </h4>
-                      <p className="text-sm font-bold text-white/60 uppercase tracking-widest leading-none group-hover:translate-x-1 transition-transform duration-500 delay-75">
-                        {member.role}
-                      </p>
-                    </div>
-
-                    {/* Interaction Frame Highlight */}
-                    <div className="absolute inset-4 border border-white/5 group-hover:border-white/10 transition-all duration-700 rounded-[2.5rem] pointer-events-none"></div>
-                  </div>
+                  <TeamCard member={member} />
                 </div>
               ))}
             </motion.div>
@@ -216,6 +189,44 @@ const TeamSection: React.FC = () => {
 
       </div>
     </section>
+  );
+};
+
+// Sub-component for individual card with robust image loading
+const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <div className="relative h-[500px] md:h-[550px] xl:h-[650px] rounded-[3rem] overflow-hidden group bg-gray-50 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700">
+      
+      {/* Background/Placeholder */}
+      <div className={`absolute inset-0 bg-gray-200 transition-opacity duration-700 ${imageLoaded ? 'opacity-0' : 'opacity-100 animate-pulse'}`}></div>
+      
+      {/* Image with explicit z-index and onLoad */}
+      <img 
+        src={member.image} 
+        alt={member.name} 
+        onLoad={() => setImageLoaded(true)}
+        className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 z-0 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        loading="lazy"
+      />
+      
+      {/* Visual Overlay - Ensures text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500 z-10"></div>
+      
+      {/* Content */}
+      <div className="absolute bottom-0 left-0 p-8 lg:p-12 w-full z-20">
+        <h4 className="text-2xl lg:text-3xl font-black text-white mb-1 tracking-tight group-hover:translate-x-1 transition-transform duration-500">
+          {member.name}
+        </h4>
+        <p className="text-sm font-bold text-white/60 uppercase tracking-widest leading-none group-hover:translate-x-1 transition-transform duration-500 delay-75">
+          {member.role}
+        </p>
+      </div>
+
+      {/* Decorative inner border */}
+      <div className="absolute inset-4 border border-white/10 group-hover:border-white/20 transition-all duration-700 rounded-[2.5rem] pointer-events-none z-30"></div>
+    </div>
   );
 };
 

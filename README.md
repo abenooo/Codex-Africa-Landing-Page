@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# SaccoSaaS - Modern Cooperative Banking Platform
 
-This contains everything you need to run your app locally.
+A high-fidelity, responsive landing page designed for SACCO (Savings and Credit Co-operative Society) software as a service. This project showcases modern UI/UX patterns including sticky process timelines, stacking feature cards, and infinite carousels.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1lfHm7UrBVXs0XiyaWLYdxIIQWu6OFj2x
+## 🚀 Key Features
 
-## Run Locally
+- **Interactive Process Timeline**: Vertical scroll-triggered onboarding guide.
+- **Stacking Features**: Modern "card stacking" effect for product modules.
+- **Infinite Team Carousel**: Seamlessly looping expert showcase optimized for all devices.
+- **High-Performance Navigation**: Floating glassmorphism navbar with mobile support.
+- **Fully Responsive**: Tailored experiences for mobile, tablet, and desktop.
 
-**Prerequisites:**  Node.js
+## 🛠️ Built With
 
+- **React 19**
+- **Tailwind CSS**
+- **Framer Motion** (Animations)
+- **Lucide React** (Icons)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📦 Deployment
+
+This project is optimized for **Vercel**. To deploy:
+1. Push your code to a GitHub repository.
+2. Connect the repository to Vercel.
+3. The `index.html` and `index.tsx` setup will be automatically detected and served.
+
+## 📝 License
+
+Distributed under the MIT License.

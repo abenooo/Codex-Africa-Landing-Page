@@ -1,5 +1,5 @@
 {
-  "name": "SaccoSaaS - Process Flow",
-  "description": "A high-performance landing page featuring a responsive navbar and a scroll-triggered progressive timeline for Sacco SaaS onboarding.",
+  "name": "SaccoSaaS Pro",
+  "description": "A high-performance, responsive landing page for Sacco SaaS solutions, featuring a smooth vertical process timeline and an infinite team carousel. Built with React, Tailwind CSS, and Framer Motion.",
   "requestFramePermissions": []
 }
