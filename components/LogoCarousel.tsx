@@ -36,7 +36,7 @@ const LogoCarousel: React.FC = () => {
               key={index} 
               className="flex items-center px-8 sm:px-16 border-r border-gray-100 last:border-r-0 min-w-[220px] sm:min-w-[320px] justify-center"
             >
-              <div className="flex items-center transition-all duration-700 grayscale hover:grayscale-0 opacity-40 hover:opacity-100">
+              <div className="flex items-center transition-all duration-700 opacity-100">
                 <img
                   src={partner.src}
                   alt={partner.alt}
