@@ -30,7 +30,7 @@ const FeaturesStack: React.FC = () => {
       },
       {
         tag: 'Financial Clarity',
-        tagColor: 'bg-emerald-50 text-emerald-600',
+        tagColor: 'bg-emerald-50 text-emerald-800',
         title: 'Integrated Finance',
         description:
           'Direct integration with major payment providers. Automated ledger, real-time balances, and audit-ready financial records with zero effort.',

@@ -70,7 +70,7 @@ const ValueDelaySection: React.FC = () => {
             className="flex items-center gap-3 mb-8"
           >
             <div className="w-10 h-[2px] bg-emerald-500"></div>
-            <span className="text-[10px] font-black text-emerald-600 tracking-[0.3em] uppercase">THE CODEX AFRICA VALUE</span>
+            <span className="text-[10px] font-black text-emerald-800 tracking-[0.3em] uppercase">THE CODEX AFRICA VALUE</span>
           </motion.div>
           
           <motion.h2 
@@ -131,7 +131,7 @@ const ValueDelaySection: React.FC = () => {
 
               {/* Category & Description (Right) */}
               <div className="z-20 text-right hidden sm:block">
-                <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest block mb-1">
+                <span className="text-[10px] font-black text-emerald-800 uppercase tracking-widest block mb-1">
                   {item.category}
                 </span>
                 <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tighter max-w-[200px] leading-tight">
@@ -141,7 +141,7 @@ const ValueDelaySection: React.FC = () => {
 
               {/* Mobile-only category */}
               <div className="z-20 text-right sm:hidden">
-                <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">
+                <span className="text-[10px] font-black text-emerald-800 uppercase tracking-widest">
                   {item.category}
                 </span>
               </div>

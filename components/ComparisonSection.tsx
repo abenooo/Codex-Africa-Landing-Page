@@ -111,7 +111,7 @@ const ComparisonSection: React.FC = () => {
              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-600">Manual Operations</span>
           </div>
           <div className="col-span-5">
-             <span className="text-[9px] font-black uppercase tracking-[0.3em] text-emerald-600">Codex Africa Digital</span>
+             <span className="text-[9px] font-black uppercase tracking-[0.3em] text-emerald-800">Codex Africa Digital</span>
           </div>
         </div>
 
@@ -158,7 +158,7 @@ const ComparisonSection: React.FC = () => {
                          {item.platform}
                       </p>
                       <div className="flex items-center gap-2">
-                        <span className="text-[8px] font-black text-emerald-600 uppercase tracking-widest px-2 py-0.5 bg-emerald-100/50 rounded-md">
+                        <span className="text-[8px] font-black text-emerald-800 uppercase tracking-widest px-2 py-0.5 bg-emerald-100/50 rounded-md">
                            {item.upgrade}
                         </span>
                       </div>
