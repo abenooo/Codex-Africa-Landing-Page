@@ -1,67 +1,91 @@
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { 
-  ArrowRight, 
-  Users, 
-  LayoutGrid, 
-  CheckCircle2, 
-  Activity, 
-  Wallet, 
-  TrendingUp, 
+import React, { useMemo, useRef } from 'react';
+import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
+import {
+  ArrowRight,
+  Users,
+  LayoutGrid,
+  CheckCircle2,
+  Activity,
+  Wallet,
+  TrendingUp,
   Plus,
   Settings,
-  MoreHorizontal
+  MoreHorizontal,
 } from 'lucide-react';
 
 const FeaturesStack: React.FC = () => {
-  const features = [
-    {
-      tag: "Stay in sync",
-      tagColor: "bg-blue-50 text-blue-600",
-      title: "Real-Time Collaboration",
-      description: "Work together in real time — edit tasks, leave comments, and see updates instantly. Stay aligned without switching tools or waiting on status updates.",
-      buttonText: "Learn More",
-      mockup: <CollaborationMockup />
-    },
-    {
-      tag: "Automate everything",
-      tagColor: "bg-orange-50 text-orange-600",
-      title: "Automated Workflows",
-      description: "Stop repeating manual tasks. Set up custom triggers and actions that handle your SACCO operations while you focus on what really matters.",
-      buttonText: "Learn More",
-      mockup: <WorkflowMockup />
-    },
-    {
-      tag: "Financial Clarity",
-      tagColor: "bg-emerald-50 text-emerald-600",
-      title: "Integrated Finance",
-      description: "Direct integration with major payment providers. Automated ledger, real-time balances, and audit-ready financial records with zero effort.",
-      buttonText: "Learn More",
-      mockup: <FinanceMockup />
-    },
-    {
-      tag: "Data Insights",
-      tagColor: "bg-purple-50 text-purple-600",
-      title: "AI Status Forecast",
-      description: "Predict trends and member behavior with built-in analytics. Get a bird's-eye view of your cooperative's financial health and growth trajectory.",
-      buttonText: "Learn More",
-      mockup: <AnalyticsMockup />
-    }
-  ];
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const features = useMemo(
+    () => [
+      {
+        tag: 'Automate everything',
+        tagColor: 'bg-orange-50 text-orange-600',
+        title: 'Automated Workflows',
+        description:
+          'Stop repeating manual tasks. Set up custom triggers and actions that handle your SACCO operations while you focus on what really matters.',
+        buttonText: 'Learn More',
+        mockup: <WorkflowMockup />,
+      },
+      {
+        tag: 'Financial Clarity',
+        tagColor: 'bg-emerald-50 text-emerald-600',
+        title: 'Integrated Finance',
+        description:
+          'Direct integration with major payment providers. Automated ledger, real-time balances, and audit-ready financial records with zero effort.',
+        buttonText: 'Learn More',
+        mockup: <FinanceMockup />,
+      },
+      {
+        tag: 'Data Insights',
+        tagColor: 'bg-purple-50 text-purple-600',
+        title: 'AI Status Forecast',
+        description:
+          "Predict trends and member behavior with built-in analytics. Get a bird's-eye view of your cooperative's financial health and growth trajectory.",
+        buttonText: 'Learn More',
+        mockup: <AnalyticsMockup />,
+      },
+    ],
+    []
+  );
+
+  // Scroll-driven stacking (animated):
+  // - Card 1 stays pinned under the navbar.
+  // - Card 2/3/4 slide from bottom to top and cover the previous card.
+  const steps = features.length - 1;
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const stackProgress = useTransform(scrollYProgress, [0, 1], [0, steps]);
 
   return (
-    <section className="bg-white pb-[10vh] sm:pb-[20vh] relative pt-10 sm:pt-20" id="features">
+    <section ref={sectionRef} className="bg-white relative pt-10 sm:pt-20 pb-10" id="features">
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="relative">
-          {features.map((feature, index) => (
-            <FeatureCard 
-              key={index}
-              index={index}
-              total={features.length}
-              {...feature}
-            />
-          ))}
+        {/* Give enough scroll distance for 4 cards */}
+        <div className="relative bg-white" style={{ height: `${(steps + 1) * 100}vh` }}>
+          {/* Sticky stage below navbar */}
+          <div
+            className="sticky bg-white flex justify-center"
+            style={{
+              top: '96px',
+              height: 'calc(100vh - 96px)',
+            }}
+          >
+            <div className="relative w-full">
+              {features.map((feature, index) => (
+                <FeatureCard
+                  key={feature.title}
+                  index={index}
+                  total={features.length}
+                  stackProgress={stackProgress}
+                  {...feature}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -77,56 +101,98 @@ interface FeatureCardProps {
   mockup: React.ReactNode;
   index: number;
   total: number;
+  stackProgress: MotionValue<number>;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ tag, tagColor, title, description, buttonText, mockup, index, total }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  tag,
+  tagColor,
+  title,
+  description,
+  buttonText,
+  mockup,
+  index,
+  total,
+  stackProgress,
+}) => {
+  // 0..1 while this card is entering (from bottom)
+  const enter = useTransform(stackProgress, [index - 1, index], [0, 1], { clamp: true });
+  // 0..1 while this card is being covered by the next card
+  const exit = useTransform(stackProgress, [index, index + 1], [0, 1], { clamp: true });
+
+  // Slide in from bottom to 0
+  const y = useTransform(enter, [0, 1], ['110%', '0%'], { clamp: true });
+
+  // When going behind, show a tiny top gap/peek (so you see card 1 under card 2, etc.)
+  // BUT: card 1 must stay stopped/pinned (no peek, no scale).
+  const isBaseCard = index === 0;
+  const peek = 12;
+
+  const behindY = isBaseCard
+    ? useTransform(exit, () => 0)
+    : useTransform(exit, [0, 0.75, 1], [0, 0, -peek], { clamp: true });
+
+  const scale = isBaseCard
+    ? useTransform(exit, () => 1)
+    : useTransform(exit, [0, 0.75, 1], [1, 1, 0.97], { clamp: true });
+
+  const finalY = useTransform([y, behindY], ([a, b]) => {
+    if (typeof a === 'string') {
+      if (a === '0%') return `${b}px`;
+      return a;
+    }
+    return b;
   });
 
-  const isLast = index === total - 1;
-  const scale = useTransform(scrollYProgress, [0.5, 1], [1, isLast ? 1 : 0.94]);
-  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, isLast ? 1 : 0.7]);
-  const filter = useTransform(scrollYProgress, [0.5, 1], ["brightness(1)", isLast ? "brightness(1)" : "brightness(0.85)"]);
+  // Only show the card once it starts entering
+  const opacity = useTransform(enter, [0, 0.05], [0, 1], { clamp: true });
+
+  // Newest card always on top during the transition
+  const zIndex = useTransform(stackProgress, (p) => {
+    const topIndex = Math.min(total - 1, Math.max(0, Math.ceil(p)));
+    if (index === topIndex) return 2000;
+    if (index < topIndex) return 1500 - (topIndex - index);
+    return 0;
+  });
+
+  // Only top card should receive pointer events
+  const pointerEvents = useTransform(stackProgress, (p) => {
+    const topIndex = Math.min(total - 1, Math.max(0, Math.ceil(p)));
+    return index === topIndex ? 'auto' : 'none';
+  });
 
   return (
-    <div 
-      ref={containerRef}
-      className="relative h-[90vh] sm:h-[110vh] flex flex-col items-center"
-      style={{ zIndex: index }}
+    <motion.div
+      style={{ y: finalY, scale, opacity, zIndex, pointerEvents }}
+      className="absolute inset-x-0 top-0 mx-auto h-full w-full max-w-[92%] sm:max-w-[88%] lg:max-w-[85%] bg-white border border-gray-200/80 rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[3rem] shadow-[0_20px_80px_-10px_rgba(0,0,0,0.12)] overflow-hidden grid grid-cols-1 lg:grid-cols-12 will-change-transform"
     >
-      <motion.div 
-        style={{ scale, opacity, filter }}
-        className="sticky top-[10vh] sm:top-[12vh] h-[75vh] sm:h-[80vh] w-full bg-[#FAFBFC] border border-gray-100 rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.06)] overflow-hidden grid grid-cols-1 lg:grid-cols-12 origin-top"
-      >
-        {/* Content Side */}
-        <div className="lg:col-span-5 p-8 sm:p-10 lg:p-20 flex flex-col justify-center bg-white z-10 overflow-y-auto lg:overflow-visible">
-          <div className={`inline-flex self-start px-3 py-1 sm:px-4 sm:py-1.5 rounded-lg text-[10px] sm:text-[11px] font-bold tracking-tight mb-4 sm:mb-8 ${tagColor}`}>
-            {tag}
+      {/* Content Side */}
+      <div className="lg:col-span-5 p-8 sm:p-10 lg:p-20 flex flex-col justify-center bg-white z-10 overflow-y-auto lg:overflow-visible">
+        <div
+          className={`inline-flex self-start px-3 py-1 sm:px-4 sm:py-1.5 rounded-lg text-[10px] sm:text-[11px] font-bold tracking-tight mb-4 sm:mb-8 ${tagColor}`}
+        >
+          {tag}
+        </div>
+        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-8 tracking-tighter leading-[1.1] sm:leading-[1.05]">
+          {title}
+        </h2>
+        <p className="text-base sm:text-lg lg:text-xl text-gray-500 leading-relaxed mb-8 sm:mb-12 max-w-md font-medium">
+          {description}
+        </p>
+        <button className="self-start flex items-center gap-3 sm:gap-4 bg-black text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full text-[10px] sm:text-xs font-bold transition-all shadow-xl hover:bg-gray-800 active:scale-95 group">
+          {buttonText}
+          <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/40 transition-colors">
+            <ArrowRight className="w-3 h-3" />
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-8 tracking-tighter leading-[1.1] sm:leading-[1.05]">
-            {title}
-          </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-500 leading-relaxed mb-8 sm:mb-12 max-w-md font-medium">
-            {description}
-          </p>
-          <button className="self-start flex items-center gap-3 sm:gap-4 bg-black text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full text-[10px] sm:text-xs font-bold transition-all shadow-xl hover:bg-gray-800 active:scale-95 group">
-            {buttonText}
-            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/40 transition-colors">
-              <ArrowRight className="w-3 h-3" />
-            </div>
-          </button>
-        </div>
-        
-        {/* Visual Side */}
-        <div className="hidden lg:flex lg:col-span-7 bg-[#EDF7F9] relative overflow-hidden items-center justify-center">
-          <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_50%_50%,#fff_0%,transparent_70%)]"></div>
-          {mockup}
-        </div>
-      </motion.div>
-    </div>
+        </button>
+      </div>
+
+      {/* Visual Side */}
+      <div className="hidden lg:flex lg:col-span-7 bg-[#EDF7F9] relative overflow-hidden items-center justify-center">
+        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_50%_50%,#fff_0%,transparent_70%)]"></div>
+        {mockup}
+      </div>
+    </motion.div>
   );
 };
 

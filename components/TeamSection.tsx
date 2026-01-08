@@ -7,15 +7,15 @@ import { TeamMember } from '../types';
 const originalMembers: TeamMember[] = [
   {
     id: '1',
-    name: 'James Carter',
-    role: 'Business Expert',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop'
+    name: 'Matyas Abera',
+    role: 'Co-Founder • Business Analyst',
+    image: '/maty.png'
   },
   {
     id: '2',
-    name: 'Emily Ross',
-    role: 'Efficiency Specialist',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop'
+    name: 'Abenezer Kifle',
+    role: 'Founder • Full-Stack Developer',
+    image: '/abenezer.png'
   },
   {
     id: '3',
@@ -28,12 +28,6 @@ const originalMembers: TeamMember[] = [
     name: 'Sarah Mitchell',
     role: 'Lead Consultant',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: '5',
-    name: 'Michael Chen',
-    role: 'Product Strategist',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop'
   }
 ];
 

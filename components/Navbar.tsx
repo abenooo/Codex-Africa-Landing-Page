@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
   return (
     <div className={`fixed top-0 left-0 right-0 z-[100] px-4 sm:px-6 lg:px-12 transition-all duration-700 ease-out ${isScrolled ? 'pt-4' : 'pt-10'}`}>
       <nav 
-        className={`mx-auto max-w-[100rem] h-16 sm:h-20 flex items-center justify-between px-8 sm:px-12 rounded-full border transition-all duration-500 ${
+        className={`mx-auto max-w-5xl h-16 sm:h-20 flex items-center justify-between px-6 sm:px-10 rounded-full border transition-all duration-500 ${
           isScrolled 
           ? 'bg-white/95 backdrop-blur-2xl border-white/50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)]' 
           : 'bg-white/40 backdrop-blur-md border-white/20 shadow-sm'
@@ -36,15 +36,16 @@ const Navbar: React.FC = () => {
              <Zap size={20} fill="currentColor" strokeWidth={0} />
            </div>
            <div className="flex flex-col">
-             <span className="text-xl font-black text-gray-900 tracking-tight leading-none uppercase">SACCOSAAS</span>
+             <span className="text-xl font-black text-gray-900 tracking-tight leading-none uppercase">Codex Africa</span>
            </div>
         </div>
 
         {/* Desktop Navigation - Centered & Icon-Free for a cleaner look on large media */}
         <div className="hidden lg:flex items-center gap-2">
            {[
-             { label: 'Features', href: '#features' },
              { label: 'Process', href: '#process' },
+             { label: 'Comparison', href: '#comparison' },
+             { label: 'Value', href: '#value-delay' },
              { label: 'Team', href: '#team' },
              { label: 'App', href: '#app' }
            ].map((item) => (
@@ -88,8 +89,9 @@ const Navbar: React.FC = () => {
             className="absolute top-28 left-4 right-4 bg-white/98 backdrop-blur-3xl rounded-[3rem] p-10 shadow-2xl border border-white/40 lg:hidden flex flex-col gap-5"
           >
                {[
-                 { label: 'Features', href: '#features', icon: LayoutGrid },
                  { label: 'Process', href: '#process', icon: History },
+                 { label: 'Comparison', href: '#comparison', icon: LayoutGrid },
+                 { label: 'Value', href: '#value-delay', icon: Zap },
                  { label: 'Team', href: '#team', icon: Users },
                  { label: 'App', href: '#app', icon: Smartphone }
                ].map((item) => (

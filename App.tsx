@@ -1,12 +1,13 @@
 
 import React from 'react';
 import Navbar from './components/Navbar';
-import ProcessTimeline from './components/ProcessTimeline';
 import FeaturesStack from './components/FeaturesStack';
-import WorkflowGrid from './components/WorkflowGrid';
 import AppDownload from './components/AppDownload';
 import TeamSection from './components/TeamSection';
+import ComparisonSection from "./components/ComparisonSection";
 import { ArrowDown, Zap } from 'lucide-react';
+import ValueDelaySection from './components/ValueDelaySection';
+import ProcessTimeline from './components/ProcessTimeline';
 import { motion } from 'framer-motion';
 
 function App() {
@@ -20,15 +21,7 @@ function App() {
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(#e5e7eb_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40"></div>
           
           <div className="max-w-6xl mx-auto space-y-8 md:space-y-12 relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-3 rounded-full border border-white bg-white/60 backdrop-blur px-4 py-2 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-gray-600 shadow-xl"
-            >
-              <Zap size={14} className="text-red-500" fill="currentColor" />
-              Revolutionizing Sacco Management
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            </motion.div>
+           
             
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-gray-900 leading-[0.9] sm:leading-[0.82]">
               Elevate Your <br/>
@@ -54,18 +47,15 @@ function App() {
           </div>
         </section>
 
-        {/* Sections with proper IDs for Nav */}
+           {/* Sections with proper IDs for Nav */}
         <section id="process" className="relative">
           <ProcessTimeline />
         </section>
 
-        <section id="features" className="relative">
-          <FeaturesStack />
-        </section>
-
-        <section className="relative">
-          <WorkflowGrid />
-        </section>
+        {/* Sections with proper IDs for Nav */}
+          {/* <section id="features" className="relative">
+            <FeaturesStack />
+          </section> */}
 
         <section id="team" className="relative">
           <TeamSection />
@@ -73,6 +63,14 @@ function App() {
 
         <section id="app" className="relative">
           <AppDownload />
+        </section>
+
+        <section id="comparison" className="relative">
+          <ComparisonSection />
+        </section>
+
+        <section id="value-delay" className="relative">
+          <ValueDelaySection />
         </section>
         
         {/* Footer Teaser */}
