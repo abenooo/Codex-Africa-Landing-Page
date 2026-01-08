@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -71,7 +70,7 @@ const AppDownload: React.FC = () => {
                       { icon: History, color: 'bg-red-600' }
                     ].map((item, i) => (
                       <div key={i} className={`w-10 h-10 sm:w-12 sm:h-12 ${item.color} rounded-full mx-auto flex items-center justify-center text-white`}>
-                        <item.icon size={18} sm:size={22} />
+                        <item.icon size={18} className="w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]" aria-hidden="true" />
                       </div>
                     ))}
                   </div>
@@ -81,20 +80,20 @@ const AppDownload: React.FC = () => {
                    {[User, Calculator, TrendingUp, Wallet, History, FileText, CreditCard, PiggyBank].map((Icon, i) => (
                      <div key={i} className="flex flex-col items-center">
                         <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center border border-gray-100 shadow-sm text-gray-700">
-                          <Icon size={18} sm:size={20} />
+                          <Icon size={18} className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" aria-hidden="true" />
                         </div>
                      </div>
                    ))}
                 </div>
 
                 <div className="mt-auto bg-white border-t border-gray-100 px-6 sm:px-8 py-3 sm:py-5 flex justify-between items-center sticky bottom-0 z-30">
-                  <Landmark size={18} sm:size={20} className="text-gray-400" />
+                  <Landmark size={18} className="text-gray-400 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" aria-hidden="true" />
                   <div className="relative -mt-10 sm:-mt-14">
-                    <div style={{ backgroundColor: brandRed }} className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-[4px] sm:border-[5px] border-[#FAFAFA] flex items-center justify-center text-white shadow-lg">
-                      <House size={20} sm:size={26} />
+                    <div style={{ backgroundColor: brandRed }} className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-[4px] sm:border-[5px] border-[#FAFAFA] flex items-center justify-center text-white shadow-lg" aria-label="Home">
+                      <House size={20} className="w-[20px] h-[20px] sm:w-[26px] sm:h-[26px]" aria-hidden="true" />
                     </div>
                   </div>
-                  <Settings size={18} sm:size={20} className="text-gray-400" />
+                  <Settings size={18} className="text-gray-400 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" aria-hidden="true" />
                 </div>
               </div>
             </motion.div>

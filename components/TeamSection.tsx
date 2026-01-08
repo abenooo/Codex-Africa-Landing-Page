@@ -123,11 +123,14 @@ const TeamSection: React.FC = () => {
               >
                 <div className="relative h-[500px] sm:h-[600px] rounded-[2.5rem] overflow-hidden group bg-gray-100 shadow-md transition-all duration-700">
                   {/* Robust image rendering */}
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    width={800}
+                    height={900}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
                   />
                   
                   {/* Gradient Overlay for the card style */}
@@ -135,9 +138,9 @@ const TeamSection: React.FC = () => {
                   
                   {/* Content (Bottom Left) */}
                   <div className="absolute bottom-0 left-0 p-10 w-full z-10 text-white">
-                    <h4 className="text-2xl font-semibold mb-1 tracking-tight">
+                    <h3 className="text-2xl font-semibold mb-1 tracking-tight">
                       {member.name}
-                    </h4>
+                    </h3>
                     <p className="text-sm font-medium text-white/80">
                       {member.role}
                     </p>
@@ -154,12 +157,14 @@ const TeamSection: React.FC = () => {
             <button 
               onClick={() => { handlePrev(); resetAutoPlay(); }}
               className="w-14 h-14 rounded-full bg-black flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xl hover:bg-red-600"
+              aria-label="Previous team member"
             >
               <ArrowLeft size={24} strokeWidth={2.5} />
             </button>
             <button 
               onClick={() => { handleNext(); resetAutoPlay(); }}
               className="w-14 h-14 rounded-full bg-black flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xl hover:bg-red-600"
+              aria-label="Next team member"
             >
               <ArrowRight size={24} strokeWidth={2.5} />
             </button>
@@ -167,7 +172,7 @@ const TeamSection: React.FC = () => {
 
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-gray-300"></span>
-            <span className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">FAQ</span>
+            <span className="text-xs font-bold text-gray-500 tracking-[0.2em] uppercase">FAQ</span>
           </div>
         </div>
 

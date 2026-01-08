@@ -109,10 +109,18 @@ const Testimonials: React.FC = () => {
                 
                 <div className="mt-auto flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
-                    <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
+                    <img
+                      src={t.avatar}
+                      alt={t.author}
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-sm">{t.author}</h4>
+                    <h3 className="font-bold text-gray-900 text-sm">{t.author}</h3>
                     <p className="text-xs text-gray-500 font-medium">{t.role} • {t.sacco}</p>
                   </div>
                 </div>

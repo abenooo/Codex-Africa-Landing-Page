@@ -134,7 +134,7 @@ const ValueDelaySection: React.FC = () => {
                 <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest block mb-1">
                   {item.category}
                 </span>
-                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-tighter max-w-[200px] leading-tight">
+                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tighter max-w-[200px] leading-tight">
                   {item.description}
                 </p>
               </div>

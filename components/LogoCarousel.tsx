@@ -61,20 +61,24 @@ const LogoCarousel: React.FC = () => {
               className="flex items-center px-8 sm:px-16 border-r border-gray-100 last:border-r-0 min-w-[150px] sm:min-w-[240px] justify-center"
             >
               <div className="flex items-center transition-all duration-700 grayscale hover:grayscale-0 opacity-40 hover:opacity-100">
-                <img 
-                  src={partner.src} 
-                  alt={partner.alt} 
+                <img
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={160}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
                   className="h-7 sm:h-12 w-auto object-contain pointer-events-none transition-all duration-500"
                   onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent && !parent.querySelector('.fallback-text')) {
-                      const span = document.createElement('span');
-                      span.className = "fallback-text text-lg sm:text-2xl font-black italic text-gray-400 lowercase tracking-tighter";
-                      span.innerText = partner.alt;
-                      parent.appendChild(span);
-                    }
+                    const target = e.currentTarget;
+                    // Avoid DOM mutations / forced reflow: swap to a tiny inline placeholder.
+                    target.onerror = null;
+                    target.src = `data:image/svg+xml,${encodeURIComponent(
+                      `<svg xmlns='http://www.w3.org/2000/svg' width='160' height='48'>` +
+                        `<rect width='100%' height='100%' fill='#f3f4f6'/>` +
+                        `<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#9ca3af' font-family='ui-sans-serif,system-ui' font-size='12'>${partner.alt}</text>` +
+                      `</svg>`
+                    )}`;
                   }}
                 />
               </div>

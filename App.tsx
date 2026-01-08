@@ -1,15 +1,13 @@
 
 import React from 'react';
 import Navbar from './components/Navbar';
-import FeaturesStack from './components/FeaturesStack';
 import AppDownload from './components/AppDownload';
 import TeamSection from './components/TeamSection';
 import ComparisonSection from "./components/ComparisonSection";
-import { ArrowDown, Zap } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import ValueDelaySection from './components/ValueDelaySection';
 import ProcessTimeline from './components/ProcessTimeline';
 import LogoCarousel from './components/LogoCarousel';
-import { motion } from 'framer-motion';
 
 function App() {
   return (
@@ -44,7 +42,7 @@ function App() {
           </div>
 
           <div className="absolute bottom-8 sm:bottom-16 left-1/2 -translate-x-1/2 animate-bounce text-gray-200">
-            <ArrowDown size={32} sm:size={40} strokeWidth={1.5} />
+            <ArrowDown size={32} strokeWidth={1.5} className="w-8 h-8 sm:w-10 sm:h-10" aria-hidden="true" focusable="false" />
           </div>
         </section>
 

@@ -26,7 +26,7 @@ const WorkflowGrid: React.FC = () => {
                     </div>
                     <h3 className="font-bold text-gray-900 text-lg">Loan Disbursement</h3>
                 </div>
-                <button className="text-gray-400 hover:text-gray-600"><MoreHorizontal /></button>
+                <button className="text-gray-400 hover:text-gray-600" aria-label="More options"><MoreHorizontal aria-hidden="true" /></button>
              </div>
              
              <div className="flex items-end gap-2 sm:gap-4 h-40 sm:h-48 w-full mt-auto px-1 sm:px-2">
@@ -51,7 +51,7 @@ const WorkflowGrid: React.FC = () => {
                   <div className="p-2.5 bg-yellow-50 rounded-xl text-yellow-600 border border-yellow-100">
                       <CheckCircle2 size={24} />
                   </div>
-                  <button className="text-gray-400 hover:text-gray-600"><MoreHorizontal /></button>
+                  <button className="text-gray-400 hover:text-gray-600" aria-label="More options"><MoreHorizontal aria-hidden="true" /></button>
               </div>
               
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">Approve Dividend Payouts</h3>

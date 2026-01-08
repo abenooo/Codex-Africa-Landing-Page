@@ -207,7 +207,14 @@ const CollaborationMockup = () => (
       className="bg-white p-5 rounded-2xl rounded-tr-none shadow-2xl border border-gray-100 flex items-start gap-4 max-w-[320px] self-end z-20"
     >
       <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden shrink-0">
-        <img src="https://i.pravatar.cc/100?u=sarah" alt="User" />
+        <img
+          src="https://i.pravatar.cc/100?u=sarah"
+          alt="User"
+          width={40}
+          height={40}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div className="space-y-1">
         <p className="text-sm font-bold text-gray-900 leading-snug">Sure! I'll assign this to Daniel</p>
@@ -229,10 +236,10 @@ const CollaborationMockup = () => (
         <LayoutGrid size={16} className="text-gray-300" />
       </div>
       <div className="p-8">
-        <h4 className="text-sm font-bold text-gray-900 mb-8 flex justify-between items-center">
+        <h3 className="text-sm font-bold text-gray-900 mb-8 flex justify-between items-center">
           Assign this task to...
           <MoreHorizontal size={16} className="text-gray-300" />
-        </h4>
+        </h3>
         <div className="space-y-7">
           {[
             { name: "Dana", role: "UX Designer", status: "Online", avatar: "https://i.pravatar.cc/150?u=dana" },
@@ -240,7 +247,15 @@ const CollaborationMockup = () => (
           ].map((user, i) => (
             <div key={i} className={`flex items-center justify-between transition-all duration-300 ${user.active ? 'bg-blue-50/50 -mx-8 px-8 py-4' : ''}`}>
               <div className="flex items-center gap-4">
-                <img src={user.avatar} className="w-11 h-11 rounded-full border-2 border-white shadow-sm" />
+                <img
+                  src={user.avatar}
+                  alt={`${user.name} avatar`}
+                  width={44}
+                  height={44}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-11 h-11 rounded-full border-2 border-white shadow-sm"
+                />
                 <div>
                   <p className="text-sm font-bold text-gray-900 mb-1">{user.name}</p>
                   <p className="text-[10px] text-gray-400 font-bold tracking-tight uppercase">{user.role}</p>
