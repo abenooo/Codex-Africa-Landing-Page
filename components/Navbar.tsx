@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
              <Zap size={20} fill="currentColor" strokeWidth={0} />
            </div>
            <div className="flex flex-col">
-             <span className="text-xl font-black text-gray-900 tracking-tight leading-none uppercase">Codex Africa</span>
+             <span className="text-xl font-black text-gray-900 tracking-tight leading-none uppercase whitespace-nowrap">Codex Africa</span>
            </div>
         </div>
 

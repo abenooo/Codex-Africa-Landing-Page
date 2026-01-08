@@ -124,13 +124,14 @@ const Testimonials: React.FC = () => {
         <motion.div 
            initial={{ opacity: 0 }}
            whileInView={{ opacity: 1 }}
-           className="mt-20 py-12 border-t border-gray-100 flex flex-wrap justify-center items-center gap-x-16 gap-y-10 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+           className="mt-20 py-12 border-t border-gray-100 flex flex-wrap justify-center items-center gap-x-12 gap-y-8 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
         >
           {/* Logo Placeholders for Trust */}
-          <div className="text-2xl font-black text-gray-900">CO-OP BANK</div>
-          <div className="text-2xl font-black text-gray-900">SASRA</div>
-          <div className="text-2xl font-black text-gray-900">KUSCCO</div>
-          <div className="text-2xl font-black text-gray-900">CIC GROUP</div>
+          <div className="text-2xl font-black text-black whitespace-nowrap">CO-OP BANK</div>
+          <div className="text-2xl font-black text-black whitespace-nowrap">ABYSSINIA</div>
+          <div className="text-2xl font-black text-black whitespace-nowrap">DASHEN</div>
+          <div className="text-2xl font-black text-black whitespace-nowrap">AWASH</div>
+          <div className="text-2xl font-black text-black whitespace-nowrap">TELEBIRR</div>
         </motion.div>
       </div>
     </section>
