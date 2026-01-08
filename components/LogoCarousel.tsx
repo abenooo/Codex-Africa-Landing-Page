@@ -1,23 +1,15 @@
 
 import React from 'react';
 
-const makeLogoDataUri = (label: string) =>
-  `data:image/svg+xml,${encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' width='240' height='64'>` +
-      `<rect width='100%' height='100%' fill='white'/>` +
-      `<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#6b7280' font-family='ui-sans-serif,system-ui' font-size='14' font-weight='700'>${label}</text>` +
-    `</svg>`
-  )}`;
-
 const partners = [
-  { alt: 'Commercial Bank of Ethiopia', src: makeLogoDataUri('Commercial Bank of Ethiopia') },
-  { alt: 'Telebirr', src: makeLogoDataUri('Telebirr') },
-  { alt: 'Awash Bank', src: makeLogoDataUri('Awash Bank') },
-  { alt: 'Dashen Bank', src: makeLogoDataUri('Dashen Bank') },
-  { alt: 'M-Pesa', src: makeLogoDataUri('M-Pesa') },
-  { alt: 'Mastercard', src: makeLogoDataUri('Mastercard') },
-  { alt: 'Visa', src: makeLogoDataUri('Visa') },
-  { alt: 'Bank of Abyssinia', src: makeLogoDataUri('Bank of Abyssinia') }
+  { alt: 'Commercial Bank of Ethiopia', src: '/logos/cbe.svg' },
+  { alt: 'Telebirr', src: '/logos/telebirr.svg' },
+  { alt: 'Awash Bank', src: '/logos/awash.svg' },
+  { alt: 'Dashen Bank', src: '/logos/dashen.svg' },
+  { alt: 'M-Pesa', src: '/logos/mpesa.svg' },
+  { alt: 'Mastercard', src: '/logos/mastercard.svg' },
+  { alt: 'Visa', src: '/logos/visa.svg' },
+  { alt: 'Bank of Abyssinia', src: '/logos/abyssinia.svg' }
 ];
 
 // Duplicate for seamless infinite loop
