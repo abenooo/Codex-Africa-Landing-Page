@@ -34,7 +34,7 @@ const LogoCarousel: React.FC = () => {
           {duplicatedPartners.map((partner, index) => (
             <div 
               key={index} 
-              className="flex items-center px-6 sm:px-14 border-r border-gray-100 last:border-r-0 min-w-[180px] sm:min-w-[260px] justify-center"
+              className="flex items-center px-8 sm:px-16 border-r border-gray-100 last:border-r-0 min-w-[220px] sm:min-w-[320px] justify-center"
             >
               <div className="flex items-center transition-all duration-700 grayscale hover:grayscale-0 opacity-40 hover:opacity-100">
                 <img
@@ -44,7 +44,7 @@ const LogoCarousel: React.FC = () => {
                   height={48}
                   loading="lazy"
                   decoding="async"
-                  className="h-10 sm:h-14 w-auto object-contain pointer-events-none transition-all duration-500"
+                  className="h-14 sm:h-20 w-auto object-contain pointer-events-none transition-all duration-500"
                   onError={(e) => {
                     const target = e.currentTarget;
                     // Avoid DOM mutations / forced reflow: swap to a tiny inline placeholder.
