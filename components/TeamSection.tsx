@@ -20,7 +20,7 @@ const originalMembers: TeamMember[] = [
   {
     id: '3',
     name: 'Mulisa Tadesse',
-    role: 'Marketing Manager',
+    role: 'Marketing Specialist',
     image: '/mule.jpeg'
   },
   {

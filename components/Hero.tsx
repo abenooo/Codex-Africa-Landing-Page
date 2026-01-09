@@ -19,9 +19,9 @@ const MockupInternal: React.FC = () => {
   return (
     <div className="relative w-full h-full flex items-center justify-center perspective-3000 transition-all duration-700 select-none">
       
-      {/* Desktop Monitor Mockup (iMac-style) - Larger, centered */}
+      {/* Desktop Monitor Mockup (iMac-style) - Responsive scaling */}
       <div 
-        className="relative transform-gpu z-10 scale-[0.45] sm:scale-[0.55] md:scale-[0.65] lg:scale-[0.75] xl:scale-[0.85]"
+        className="relative transform-gpu z-10 scale-[0.25] sm:scale-[0.35] md:scale-[0.5] lg:scale-[0.65] xl:scale-[0.85]"
       >
         {/* Monitor Screen with integrated chin */}
         <div className="relative w-[800px] lg:w-[900px]">
@@ -69,9 +69,9 @@ const MockupInternal: React.FC = () => {
       </div>
 
 
-      {/* Mobile Mockup - Positioned to the right with gap */}
+      {/* Mobile Mockup - Positioned to the right with gap, hide on very small screens */}
       <div 
-        className="absolute right-0 bottom-8 lg:bottom-16 z-50 scale-[0.45] sm:scale-[0.55] md:scale-[0.65] lg:scale-[0.75] xl:scale-[0.85]"
+        className="absolute right-0 bottom-4 sm:bottom-8 lg:bottom-16 z-50 scale-[0.25] sm:scale-[0.35] md:scale-[0.5] lg:scale-[0.65] xl:scale-[0.85] hidden xs:block"
       >
         <div className="w-[260px] lg:w-[300px] h-[560px] lg:h-[640px] bg-black rounded-[48px] lg:rounded-[56px] border-[12px] lg:border-[16px] border-[#18181b] shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden">
           <img
@@ -159,12 +159,12 @@ const MockupInternal: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-[1.1] mb-4">
-            Modern SACCO Software <br className="hidden sm:block" /> for Ethiopia and Beyond
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-[1.15] mb-4">
+            Modern SACCO software <br className="hidden sm:block" /> for Africa
           </h1>
 
           {/* Sub-headline */}
-          <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-md mb-10">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-sm sm:max-w-md mx-auto xl:mx-0 mb-8 sm:mb-10">
             Launch member onboarding, savings, loans, and mobile banking from one secure platform — in minutes, not months.
           </p>
 
@@ -211,7 +211,7 @@ const MockupInternal: React.FC = () => {
         </div>
 
         {/* Right Column: Integrated High Fidelity 3D Mockup */}
-        <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] w-full flex items-center justify-center order-2 xl:order-2 overflow-visible">
+        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] w-full flex items-center justify-center order-2 xl:order-2 overflow-hidden xl:overflow-visible">
            <MockupInternal />
         </div>
       </div>
