@@ -148,13 +148,13 @@ const MockupInternal: React.FC = () => {
 
  const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-20 pb-16 overflow-hidden">
-      <div className="grid xl:grid-cols-[1fr_2fr] gap-8 xl:gap-8 items-center">
+    <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-24 pb-12 sm:pt-20 sm:pb-16 overflow-hidden">
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-12 sm:gap-8 xl:gap-8 items-center max-w-7xl mx-auto w-full">
         
         {/* Column 1: Text & CTA (1/3 width) */}
-        <div className="z-20 order-1">
+        <div className="z-20 order-1 xl:order-1 text-center xl:text-left">
           {/* Eyebrow badge */}
-          <div className="flex items-center gap-3 mb-6 sm:mb-8">
+          <div className="flex items-center justify-center xl:justify-start gap-3 mb-6 sm:mb-8">
             <span className="text-red-600 font-bold tracking-widest text-xs uppercase">// Codex Africa //</span>
           </div>
 
@@ -169,10 +169,10 @@ const MockupInternal: React.FC = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-start gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+          <div className="flex flex-col sm:flex-row items-center xl:items-start justify-center xl:justify-start gap-4">
             <a
               href="#app"
-              className="group inline-flex items-center justify-center gap-3 rounded-full bg-black px-8 py-5 text-base font-black uppercase tracking-widest text-white shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all hover:bg-red-600 hover:shadow-[0_20px_60px_rgba(220,38,38,0.4)] active:scale-95"
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-black px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base font-black uppercase tracking-widest text-white shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all hover:bg-red-600 hover:shadow-[0_20px_60px_rgba(220,38,38,0.4)] active:scale-95"
             >
               Request demo
               <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -181,14 +181,14 @@ const MockupInternal: React.FC = () => {
             </a>
             <a
               href="#comparison"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-5 text-base font-black uppercase tracking-widest text-gray-900 shadow-sm ring-2 ring-gray-200 transition-all hover:ring-gray-900 active:scale-95"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base font-black uppercase tracking-widest text-gray-900 shadow-sm ring-2 ring-gray-200 transition-all hover:ring-gray-900 active:scale-95"
             >
               View pricing
             </a>
           </div>
 
           {/* Trust indicators */}
-          <div className="mt-10 flex items-center gap-6 text-sm font-bold text-gray-500">
+          <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center xl:justify-start gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-gray-500">
             <div className="flex items-center gap-2 whitespace-nowrap">
               <svg className="h-5 w-5 flex-shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -211,7 +211,7 @@ const MockupInternal: React.FC = () => {
         </div>
 
         {/* Right Column: Integrated High Fidelity 3D Mockup */}
-        <div className="relative h-[600px] lg:h-[800px] w-full flex items-center justify-center order-2 overflow-visible">
+        <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] w-full flex items-center justify-center order-2 xl:order-2 overflow-visible">
            <MockupInternal />
         </div>
       </div>

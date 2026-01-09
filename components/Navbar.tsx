@@ -44,10 +44,10 @@ const Navbar: React.FC = () => {
         <div className="hidden lg:flex items-center gap-2">
            {[
              { label: 'Process', href: '#process' },
-             { label: 'Comparison', href: '#comparison' },
-             { label: 'Value', href: '#value-delay' },
              { label: 'Team', href: '#team' },
-             { label: 'App', href: '#app' }
+             { label: 'App', href: '#app' },
+             { label: 'Comparison', href: '#comparison' },
+             { label: 'Value', href: '#value-delay' }
            ].map((item) => (
              <a 
                key={item.label}
@@ -90,10 +90,10 @@ const Navbar: React.FC = () => {
           >
                {[
                  { label: 'Process', href: '#process', icon: History },
-                 { label: 'Comparison', href: '#comparison', icon: LayoutGrid },
-                 { label: 'Value', href: '#value-delay', icon: Zap },
                  { label: 'Team', href: '#team', icon: Users },
-                 { label: 'App', href: '#app', icon: Smartphone }
+                 { label: 'App', href: '#app', icon: Smartphone },
+                 { label: 'Comparison', href: '#comparison', icon: LayoutGrid },
+                 { label: 'Value', href: '#value-delay', icon: Zap }
                ].map((item) => (
                  <a 
                    key={item.label}

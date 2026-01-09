@@ -19,9 +19,9 @@ const originalMembers: TeamMember[] = [
   },
   {
     id: '3',
-    name: 'Daniel Lee',
-    role: 'Financial & Growth Advisor',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop'
+    name: 'Mulisa Tadesse',
+    role: 'Marketing Manager',
+    image: '/mule.jpeg'
   },
   {
     id: '4',
