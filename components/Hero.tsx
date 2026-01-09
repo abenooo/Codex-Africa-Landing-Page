@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
   LayoutDashboard, 
   CreditCard, 
@@ -147,7 +147,35 @@ const MockupInternal: React.FC = () => {
 };
 
  const Hero: React.FC = () => {
+  useEffect(() => {
+    // Wait for Cal to be available and initialize
+    const checkAndInit = () => {
+      // @ts-ignore
+      if (window.Cal) {
+        // @ts-ignore
+        window.Cal('init', { origin: 'https://app.cal.com' });
+        console.log('Cal.com initialized');
+        return true;
+      }
+      return false;
+    };
+
+    // Try immediately
+    if (!checkAndInit()) {
+      // Poll until available
+      const interval = setInterval(() => {
+        if (checkAndInit()) {
+          clearInterval(interval);
+        }
+      }, 100);
+
+      return () => clearInterval(interval);
+    }
+  }, []);
+
+
   return (
+    <>
     <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-24 pb-12 sm:pt-20 sm:pb-16 overflow-hidden">
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-12 sm:gap-8 xl:gap-8 items-center max-w-7xl mx-auto w-full">
         
@@ -171,10 +199,15 @@ const MockupInternal: React.FC = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center xl:items-start justify-center xl:justify-start gap-4">
             <a
-              href="#app"
+              href="https://cal.com/abenezer-kifle-t8tqcf/platform-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cal-link="abenezer-kifle-t8tqcf/platform-demo"
+              data-cal-namespace=""
+              data-cal-config='{"layout":"month_view"}'
               className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-black px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-black uppercase tracking-widest text-white shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all hover:bg-red-600 hover:shadow-[0_20px_60px_rgba(220,38,38,0.4)] active:scale-95 whitespace-nowrap"
             >
-              Request demo
+              Book appointment
               <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -220,6 +253,7 @@ const MockupInternal: React.FC = () => {
       <div className="absolute -top-24 -right-24 w-[600px] h-[600px] bg-blue-500/10 blur-[180px] -z-10 rounded-full"></div>
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-500/5 blur-[150px] -z-10 rounded-full"></div>
     </section>
+    </>
   );
 };
 export default Hero;

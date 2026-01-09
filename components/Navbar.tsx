@@ -32,9 +32,6 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-4 cursor-pointer group" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-           <div className="w-10 h-10 rounded-2xl bg-black flex items-center justify-center text-white group-hover:bg-red-600 transition-all duration-500 shadow-xl group-hover:rotate-6 group-hover:scale-110">
-             <Zap size={20} fill="currentColor" strokeWidth={0} />
-           </div>
            <div className="flex flex-col">
              <span className="text-xl font-black text-gray-900 tracking-tight leading-none uppercase whitespace-nowrap">Codex Africa</span>
            </div>
