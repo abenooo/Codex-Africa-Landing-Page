@@ -69,9 +69,9 @@ const MockupInternal: React.FC = () => {
       </div>
 
 
-      {/* Mobile Mockup - Positioned to the right with gap, hide on very small screens */}
+      {/* Mobile Mockup - Positioned to the far right with gap */}
       <div 
-        className="absolute right-0 bottom-4 sm:bottom-8 lg:bottom-16 z-50 scale-[0.25] sm:scale-[0.35] md:scale-[0.5] lg:scale-[0.65] xl:scale-[0.85] hidden xs:block"
+        className="absolute right-0 bottom-4 sm:bottom-8 lg:bottom-16 z-50 scale-[0.25] sm:scale-[0.35] md:scale-[0.5] lg:scale-[0.65] xl:scale-[0.85] translate-x-[20%] sm:translate-x-[25%] md:translate-x-[30%] lg:translate-x-[35%] xl:translate-x-[40%]"
       >
         <div className="w-[260px] lg:w-[300px] h-[560px] lg:h-[640px] bg-black rounded-[48px] lg:rounded-[56px] border-[12px] lg:border-[16px] border-[#18181b] shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden">
           <img
@@ -172,7 +172,7 @@ const MockupInternal: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center xl:items-start justify-center xl:justify-start gap-4">
             <a
               href="#app"
-              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-black px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base font-black uppercase tracking-widest text-white shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all hover:bg-red-600 hover:shadow-[0_20px_60px_rgba(220,38,38,0.4)] active:scale-95"
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-black px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-black uppercase tracking-widest text-white shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all hover:bg-red-600 hover:shadow-[0_20px_60px_rgba(220,38,38,0.4)] active:scale-95 whitespace-nowrap"
             >
               Request demo
               <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -181,7 +181,7 @@ const MockupInternal: React.FC = () => {
             </a>
             <a
               href="#comparison"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base font-black uppercase tracking-widest text-gray-900 shadow-sm ring-2 ring-gray-200 transition-all hover:ring-gray-900 active:scale-95"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-black uppercase tracking-widest text-gray-900 shadow-sm ring-2 ring-gray-200 transition-all hover:ring-gray-900 active:scale-95 whitespace-nowrap"
             >
               View pricing
             </a>
