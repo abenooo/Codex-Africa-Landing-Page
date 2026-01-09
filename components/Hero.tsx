@@ -23,40 +23,44 @@ const MockupInternal: React.FC = () => {
       <div 
         className="relative transform-gpu z-10 scale-[0.45] sm:scale-[0.55] md:scale-[0.65] lg:scale-[0.75] xl:scale-[0.85]"
       >
-        {/* Monitor Screen */}
-        <div className="relative w-[800px] lg:w-[900px] bg-gray-900 rounded-[2rem] shadow-[0_50px_120px_rgba(0,0,0,0.5)] overflow-hidden border-[12px] border-gray-900">
-          {/* Screen Bezel */}
-          <div className="relative bg-white overflow-hidden rounded-[1rem]">
-            {/* Browser Chrome */}
-            <div className="flex items-center justify-between bg-gray-50 px-5 py-3 border-b border-gray-200">
-              <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-full bg-red-400" />
-                <span className="h-3 w-3 rounded-full bg-amber-400" />
-                <span className="h-3 w-3 rounded-full bg-emerald-400" />
-              </div>
-              <div className="flex-1 mx-6">
-                <div className="bg-white border border-gray-200 rounded-lg px-4 py-1.5 text-xs font-medium text-gray-500 text-center">
-                  app.codexafrica.com/dashboard
+        {/* Monitor Screen with integrated chin */}
+        <div className="relative w-[800px] lg:w-[900px]">
+          {/* Screen + Bezel */}
+          <div className="relative bg-gray-900 rounded-t-[2rem] shadow-[0_50px_120px_rgba(0,0,0,0.5)] border-t-[12px] border-l-[12px] border-r-[12px] border-gray-900">
+            {/* Screen Content */}
+            <div className="relative bg-white overflow-hidden rounded-t-[1rem]">
+              {/* Browser Chrome */}
+              <div className="flex items-center justify-between bg-gray-50 px-5 py-3 border-b border-gray-200">
+                <div className="flex items-center gap-2">
+                  <span className="h-3 w-3 rounded-full bg-red-400" />
+                  <span className="h-3 w-3 rounded-full bg-amber-400" />
+                  <span className="h-3 w-3 rounded-full bg-emerald-400" />
                 </div>
+                <div className="flex-1 mx-6">
+                  <div className="bg-white border border-gray-200 rounded-lg px-4 py-1.5 text-xs font-medium text-gray-500 text-center">
+                    app.codexafrica.com/dashboard
+                  </div>
+                </div>
+                <div className="w-16" />
               </div>
-              <div className="w-16" />
-            </div>
-            
-            {/* Dashboard Screenshot */}
-            <div className="w-full bg-white overflow-hidden">
-              <img
-                src="/web.jpeg"
-                alt="Codex Africa Dashboard"
-                className="w-full h-auto object-cover"
-              />
+              
+              {/* Dashboard Screenshot */}
+              <div className="w-full bg-white overflow-hidden">
+                <img
+                  src="/web.jpeg"
+                  alt="Codex Africa Dashboard"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </div>
+          
+          {/* Chin (bottom bezel) - no gap */}
+          <div className="w-full h-8 bg-gradient-to-b from-gray-800 to-gray-900 border-b-[12px] border-l-[12px] border-r-[12px] border-gray-900 rounded-b-[2rem]" />
         </div>
 
-        {/* Monitor Stand (iMac-style) */}
+        {/* Monitor Stand */}
         <div className="flex flex-col items-center">
-          {/* Chin/bottom bezel */}
-          <div className="w-full h-8 bg-gradient-to-b from-gray-800 to-gray-900 rounded-b-[2rem]" />
           {/* Stand neck */}
           <div className="w-4 h-12 bg-gradient-to-b from-gray-700 to-gray-800" />
           {/* Stand base */}
